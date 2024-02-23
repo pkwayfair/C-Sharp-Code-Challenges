@@ -49,5 +49,26 @@ namespace OODemo
             }
             return result;
         }
+
+        public static void GetCharacterCount(string input)
+        {
+            char[] arr = input.ToCharArray();
+            Dictionary<char,int> keyValuePairs = new Dictionary<char,int>();
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if (keyValuePairs.ContainsKey(arr[i]))
+                {
+                    keyValuePairs[arr[i]]++;
+                }
+                else
+                {
+                    keyValuePairs.Add(arr[i], 1);
+                }
+            }
+            foreach (var item in keyValuePairs.ToList())
+            {
+                Console.WriteLine(item.Key + ": " + item.Value);
+            }
+        }
     }
 }
